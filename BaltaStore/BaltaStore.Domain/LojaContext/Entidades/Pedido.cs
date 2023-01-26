@@ -15,6 +15,7 @@ namespace BaltaStore.Domain.LojaContext.Entidades
             Cliente = cliente;
             DataCriacao = DateTime.Now;
             Status = StatusPedidoEnum.Criado;
+
             _itens = new List<ItemPedido>();
             _entregas = new List<Entrega>();
         }
