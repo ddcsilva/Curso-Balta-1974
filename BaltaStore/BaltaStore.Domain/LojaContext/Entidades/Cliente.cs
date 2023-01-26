@@ -1,27 +1,28 @@
-﻿namespace BaltaStore.Domain.LojaContext.Entidades
+﻿using BaltaStore.Domain.LojaContext.ValueObjects;
+using System.Collections.Generic;
+
+namespace BaltaStore.Domain.LojaContext.Entidades
 {
     public class Cliente
     {
-        public Cliente(string nome, string sobrenome, string documento, string email, string telefone, string endereco)
+        public Cliente(NomeCompleto nomeCompleto, Documento documento, Email email, string telefone)
         {
-            Nome = nome;
-            Sobrenome = sobrenome;
+            NomeCompleto = nomeCompleto;
             Documento = documento;
             Email = email;
             Telefone = telefone;
-            Endereco = endereco;
+            Enderecos = new List<Endereco>();
         }
 
-        public string Nome { get; private set; }
-        public string Sobrenome { get; private set; }
-        public string Documento { get; private set; }
-        public string Email { get; private set; }
+        public NomeCompleto NomeCompleto { get; set; }
+        public Documento Documento { get; private set; }
+        public Email Email { get; private set; }
         public string Telefone { get; private set; }
-        public string Endereco { get; private set; }
+        public IReadOnlyCollection<Endereco> Enderecos { get; private set; }
 
         public override string ToString()
         {
-            return $"{Nome} {Sobrenome}";
+            return NomeCompleto.ToString();
         }
     }
 }
