@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BaltaStore.Domain.LojaContext
+namespace BaltaStore.Domain.LojaContext.Entidades
 {
     public class Entrega
     {

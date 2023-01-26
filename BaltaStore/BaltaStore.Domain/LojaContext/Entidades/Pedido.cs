@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BaltaStore.Domain.LojaContext
+namespace BaltaStore.Domain.LojaContext.Entidades
 {
     public class Pedido
     {
