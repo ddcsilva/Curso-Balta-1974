@@ -1,10 +1,11 @@
 ﻿using BaltaStore.Domain.LojaContext.ValueObjects;
+using FluentValidator;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace BaltaStore.Domain.LojaContext.Entidades
 {
-    public class Cliente
+    public class Cliente : Notifiable
     {
         private readonly IList<Endereco> _enderecos;
 

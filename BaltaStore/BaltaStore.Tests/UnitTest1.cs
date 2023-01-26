@@ -29,6 +29,9 @@ namespace BaltaStore.Tests
             // Simular Pedido
             pedido.Gerar();
 
+            // Verificar se o pedido é válido
+            var pedidoValido = pedido.IsValid;
+
             // Simular pagamento
             pedido.Pagar();
 

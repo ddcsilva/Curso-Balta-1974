@@ -1,8 +1,9 @@
 ﻿using BaltaStore.Domain.LojaContext.Enums;
+using FluentValidator;
 
 namespace BaltaStore.Domain.LojaContext.Entidades
 {
-    public class Endereco
+    public class Endereco : Notifiable
     {
         public Endereco(string rua, string numero, string complemento, string distrito, string cidade, string estado, string pais, string cep, TipoEnderecoEnum tipo)
         {
