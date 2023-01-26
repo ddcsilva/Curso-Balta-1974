@@ -32,7 +32,7 @@ namespace BaltaStore.Domain.LojaContext.Entidades
             _itens.Add(item);
         }
 
-        public void Criar()
+        public void Gerar()
         {
             // Gera o número do pedido
             Numero = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8).ToUpper();
