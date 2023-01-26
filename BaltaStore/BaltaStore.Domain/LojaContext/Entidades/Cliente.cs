@@ -18,5 +18,10 @@
         public string Email { get; private set; }
         public string Telefone { get; private set; }
         public string Endereco { get; private set; }
+
+        public override string ToString()
+        {
+            return $"{Nome} {Sobrenome}";
+        }
     }
 }
