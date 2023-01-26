@@ -5,15 +5,27 @@ namespace BaltaStore.Domain.LojaContext.Entidades
 {
     public class Entrega
     {
-        public Entrega(DateTime dataEntregaEstimada)
+        public Entrega(DateTime dataEstimadaEntrega)
         {
             DataCriacao = DateTime.Now;
-            DataEntregaEstimada = dataEntregaEstimada;
+            DataEstimadaEntrega = dataEstimadaEntrega;
             Status = StatusEntregaEnum.Aguardando;
         }
 
         public DateTime DataCriacao { get; private set; }
-        public DateTime DataEntregaEstimada { get; private set; }
+        public DateTime DataEstimadaEntrega { get; private set; }
         public StatusEntregaEnum Status { get; private set; }
+
+        public void Enviar()
+        {
+            // Se a data estimada de entrega estiver no passado, não entregar
+            Status = StatusEntregaEnum.Enviado;
+        }
+
+        public void Cancelar()
+        {
+            // Se o status já estiver entregue, não pode cancelar
+            Status = StatusEntregaEnum.Cancelado;
+        }
     }
 }

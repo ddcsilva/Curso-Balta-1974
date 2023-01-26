@@ -13,7 +13,6 @@ namespace BaltaStore.Domain.LojaContext.Entidades
         public Pedido(Cliente cliente)
         {
             Cliente = cliente;
-            Numero = Guid.NewGuid().ToString().Replace("-", "").Substring(0,8).ToUpper();
             DataCriacao = DateTime.Now;
             Status = StatusPedidoEnum.Criado;
             _itens = new List<ItemPedido>();
@@ -32,14 +31,51 @@ namespace BaltaStore.Domain.LojaContext.Entidades
             _itens.Add(item);
         }
 
-        public void AdicionarEntrega(Entrega entrega)
+        public void Criar()
         {
-            _entregas.Add(entrega);
+            // Gera o número do pedido
+            Numero = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 8).ToUpper();
+
+            // Validar
         }
 
-        public void Finalizar()
+        public void Pagar()
         {
-            // Finalizar Pedido
+            Status = StatusPedidoEnum.Pago;
+        }
+
+        // Enviar
+        public void Enviar()
+        {
+            // A cada 5 produtos é uma entrega
+            var entregas = new List<Entrega>();
+            entregas.Add(new Entrega(DateTime.Now.AddDays(5)));
+
+            var quantidadeProdutos = 1;
+
+            // Quebra as entregas
+            foreach (var item in _itens)
+            {
+                if (quantidadeProdutos == 5)
+                {
+                    entregas.Add(new Entrega(DateTime.Now.AddDays(5)));
+                    quantidadeProdutos = 1;
+                }
+
+                quantidadeProdutos++;
+            }
+
+            // Envia todas as entregas
+            entregas.ForEach(x => x.Enviar());
+
+            // Adiciona as entregas ao pedido
+            entregas.ForEach(x => _entregas.Add(x));
+        }
+
+        public void Cancelar()
+        {
+            Status = StatusPedidoEnum.Cancelado;
+            _entregas.ToList().ForEach(x => x.Cancelar());
         }
     }
 }
