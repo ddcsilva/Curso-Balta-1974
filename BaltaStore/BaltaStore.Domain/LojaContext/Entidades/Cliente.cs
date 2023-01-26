@@ -2,11 +2,21 @@
 {
     public class Cliente
     {
-        public string Nome { get; set; }
-        public string Sobrenome { get; set; }
-        public string Documento { get; set; }
-        public string Email { get; set; }
-        public string Telefone { get; set; }
-        public string Endereco { get; set; }
+        public Cliente(string nome, string sobrenome, string documento, string email, string telefone, string endereco)
+        {
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Documento = documento;
+            Email = email;
+            Telefone = telefone;
+            Endereco = endereco;
+        }
+
+        public string Nome { get; private set; }
+        public string Sobrenome { get; private set; }
+        public string Documento { get; private set; }
+        public string Email { get; private set; }
+        public string Telefone { get; private set; }
+        public string Endereco { get; private set; }
     }
 }
