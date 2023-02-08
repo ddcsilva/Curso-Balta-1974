@@ -1,4 +1,4 @@
-namespace BaltaStore.Dominio;
+namespace BaltaStore.Dominio.Entidades;
 
 public class Produto
 {
