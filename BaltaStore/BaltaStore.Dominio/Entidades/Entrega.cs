@@ -1,3 +1,5 @@
+using System;
+
 namespace BaltaStore.Dominio.Entidades;
 
 public class Entrega
