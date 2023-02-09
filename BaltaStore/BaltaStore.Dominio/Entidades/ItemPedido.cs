@@ -2,7 +2,14 @@ namespace BaltaStore.Dominio.Entidades;
 
 public class ItemPedido
 {
-    public Produto Produto { get; set; }
-    public string Quantidade { get; set; }
-    public string Preco { get; set; }
+    public ItemPedido(Produto produto, decimal quantidade)
+    {
+        Produto = produto;
+        Quantidade = quantidade;
+        Preco = produto.Preco;
+    }
+
+    public Produto Produto { get; private set; }
+    public decimal Quantidade { get; private set; }
+    public decimal Preco { get; private set; }
 }
