@@ -30,13 +30,49 @@ public class Pedido
         _itens.Add(item);
     }
 
-    public void adicionarEntrega(Entrega entrega)
-    {
-        _entregas.Add(entrega);
-    }
-
+    // Criar um pedido
     public void Fechar()
     {
+        // Validar pedido
+    }
 
+    // Pagar um pedido
+    public void Pagar()
+    {
+        Status = EStatusPedido.Pago;
+    }
+
+    // Enviar um pedido
+    public void Enviar()
+    {
+        // A cada 5 produtos, é uma entrega
+        var entregas = new List<Entrega>();
+        entregas.Add(new Entrega(DateTime.Now.AddDays(5)));
+        var contador = 1;
+
+        // Quebra as entregas
+        foreach (var item in _itens)
+        {
+            if (contador < 5) 
+            {
+                contador = 1;
+                entregas.Add(new Entrega(DateTime.Now.AddDays(5)));
+            }
+
+            contador ++;
+        }
+
+        // Envia todas as entregas
+        entregas.ForEach(x => x.Enviar());
+
+        // Adiciona as entregas ao pedido
+        entregas.ForEach(x => _entregas.Add(x));
+    }
+
+    // Cancelar um pedido
+    public void Cancelar()
+    {
+        Status = EStatusPedido.Cancelado;
+        _entregas.ToList().ForEach(x => x.Cancelar());
     }
 }
