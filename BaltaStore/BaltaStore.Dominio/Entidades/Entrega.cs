@@ -1,4 +1,5 @@
-using BaltaStore.Enumeradores;
+
+using BaltaStore.Dominio.Enumeradores;
 
 namespace BaltaStore.Dominio.Entidades;
 

@@ -1,4 +1,4 @@
-namespace BaltaStore.Enumeradores;
+namespace BaltaStore.Dominio.Enumeradores;
 
 public enum EStatusPedido
 {
