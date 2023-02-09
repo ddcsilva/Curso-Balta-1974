@@ -26,17 +26,20 @@ public class Pedido : Notifiable
     public IReadOnlyCollection<ItemPedido> Items => _itens.ToArray();
     public IReadOnlyCollection<Entrega> Entregas => _entregas.ToArray();
 
-    public void adicionarItem(ItemPedido item)
+    public void adicionarItem(Produto produto, decimal quantidade)
     {
+        if (quantidade > produto.QuantidadeEmEstoque)
+            AddNotification("ItemPedido", $"Produto {produto.Titulo} não tem {quantidade} em estoque.");
+
+        var item = new ItemPedido(produto, quantidade);
         _itens.Add(item);
     }
 
     // Criar um pedido
     public void Fechar()
     {
-        if(_itens.Count == 0) {
+        if(_itens.Count == 0)
             AddNotification("Pedido", "Este pedido não possui itens");
-        }
     }
 
     // Pagar um pedido
