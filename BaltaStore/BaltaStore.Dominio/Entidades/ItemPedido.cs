@@ -19,6 +19,4 @@ public class ItemPedido : Notifiable
     public Produto Produto { get; private set; }
     public decimal Quantidade { get; private set; }
     public decimal Preco { get; private set; }
-
-    public IDictionary<string, string> Notificacoes { get; set; }
 }
