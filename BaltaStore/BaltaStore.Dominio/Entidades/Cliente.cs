@@ -1,8 +1,9 @@
 using BaltaStore.Dominio.ValueObjects;
+using FluentValidator;
 
 namespace BaltaStore.Dominio.Entidades;
 
-public class Cliente
+public class Cliente : Notifiable
 {
     private readonly IList<Endereco> _enderecos;
 

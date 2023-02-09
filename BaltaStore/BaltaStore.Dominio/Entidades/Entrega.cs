@@ -1,9 +1,10 @@
 
 using BaltaStore.Dominio.Enumeradores;
+using FluentValidator;
 
 namespace BaltaStore.Dominio.Entidades;
 
-public class Entrega
+public class Entrega : Notifiable
 {
     public Entrega(DateTime dataEntregaEstimada)
     {

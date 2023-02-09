@@ -20,15 +20,21 @@ public class UnitTest1
         var cadeira = new Produto("Cadeira", "Cadeira", "Imagem.png", 559.90M, 10);
 
         var pedido = new Pedido(cliente);
-        pedido.adicionarItem(new ItemPedido(mouse, 5));
-        pedido.adicionarItem(new ItemPedido(teclado, 5));
-        pedido.adicionarItem(new ItemPedido(cadeira, 5));
-        pedido.adicionarItem(new ItemPedido(impressora, 5));
+        // pedido.adicionarItem(new ItemPedido(mouse, 5));
+        // pedido.adicionarItem(new ItemPedido(teclado, 5));
+        // pedido.adicionarItem(new ItemPedido(cadeira, 5));
+        // pedido.adicionarItem(new ItemPedido(impressora, 5));
 
+        // Realiza o Pedido
         pedido.Fechar();
 
+        // Verificar se o pagamento é valido
+        var pedidoValido = pedido.IsValid;
+
+        // Simular o pagamento
         pedido.Pagar();
 
+        // Simular o envio
         pedido.Enviar();
 
         pedido.Cancelar();

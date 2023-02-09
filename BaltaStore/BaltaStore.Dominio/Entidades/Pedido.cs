@@ -1,8 +1,9 @@
 using BaltaStore.Dominio.Enumeradores;
+using FluentValidator;
 
 namespace BaltaStore.Dominio.Entidades;
 
-public class Pedido
+public class Pedido : Notifiable
 {
     private readonly IList<ItemPedido> _itens;
     private readonly IList<Entrega> _entregas;
@@ -33,7 +34,9 @@ public class Pedido
     // Criar um pedido
     public void Fechar()
     {
-        // Validar pedido
+        if(_itens.Count == 0) {
+            AddNotification("Pedido", "Este pedido não possui itens");
+        }
     }
 
     // Pagar um pedido

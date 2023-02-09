@@ -1,8 +1,9 @@
 using BaltaStore.Dominio.Enumeradores;
+using FluentValidator;
 
 namespace BaltaStore.Dominio.Entidades;
 
-public class Endereco
+public class Endereco : Notifiable
 {
     public Endereco(string rua, string numero, string complemento, string distrito, string cidade, string estado, string pais, string cep, ETipoEndereco tipo)
     {
