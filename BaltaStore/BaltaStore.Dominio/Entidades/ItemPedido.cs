@@ -14,6 +14,8 @@ public class ItemPedido : Notifiable
         {
             AddNotification("Quantidade", "Produto fora de estoque");
         }
+
+        produto.DiminuirQuantidade(quantidade);
     }
 
     public Produto Produto { get; private set; }

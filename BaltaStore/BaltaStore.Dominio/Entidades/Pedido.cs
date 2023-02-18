@@ -53,13 +53,12 @@ public class Pedido : Notifiable
     {
         // A cada 5 produtos, é uma entrega
         var entregas = new List<Entrega>();
-        entregas.Add(new Entrega(DateTime.Now.AddDays(5)));
         var contador = 1;
 
         // Quebra as entregas
         foreach (var item in _itens)
         {
-            if (contador < 5) 
+            if (contador == 5) 
             {
                 contador = 1;
                 entregas.Add(new Entrega(DateTime.Now.AddDays(5)));

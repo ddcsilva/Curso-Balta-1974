@@ -19,6 +19,11 @@ public class Produto : Notifiable
     public decimal Preco { get; private set; }
     public decimal QuantidadeEmEstoque { get; private set; }
 
+    public void DiminuirQuantidade(decimal quantidade)
+    {
+        QuantidadeEmEstoque -= quantidade;
+    }
+
     public override string ToString()
     {
         return Titulo;

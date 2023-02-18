@@ -1,6 +1,6 @@
 using BaltaStore.Dominio.ValueObjects;
 
-namespace BaltaStore.Testes;
+namespace BaltaStore.Testes.ValueObjects;
 
 [TestClass]
 public class DocumentoTestes
