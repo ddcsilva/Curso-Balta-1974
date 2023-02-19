@@ -21,7 +21,7 @@ namespace BaltaStore.Dominio.Commands.PedidoCommands.Inputs
                   .IsGreaterThan(ItensPedido.Count, 0, "ItensPedido", "Nenhum item do pedido foi encontrado")
               );
 
-      return Valido();
+      return IsValid;
     }
   }
 }

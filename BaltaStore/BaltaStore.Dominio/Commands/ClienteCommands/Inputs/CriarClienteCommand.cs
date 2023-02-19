@@ -22,7 +22,7 @@ namespace BaltaStore.Dominio.Commands.CustomerCommands.Inputs
                   .HasLen(Documento, 11, "Documento", "CPF Inválido")
               );
 
-      return Valido();
+      return IsValid;
     }
   }
 }
