@@ -17,8 +17,10 @@ public class ClienteHandlerTests
         command.Email = "danilo.silva@msn.com";
         command.Telefone = "11999999997";
 
-        Assert.AreEqual(true, command.Valido());
-
         var handler = new ClienteHandler(new FakeClienteRepository(), new FakeEmailService());
+        var result = handler.Handle(command);
+
+        Assert.AreNotEqual(null, result);
+        Assert.AreEqual(true, handler.IsValid);
     }
 }

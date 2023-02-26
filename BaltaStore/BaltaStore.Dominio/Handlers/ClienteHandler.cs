@@ -36,7 +36,7 @@ public class ClienteHandler : Notifiable, ICommandHandler<CriarClienteCommand>, 
 
         // Criar os VOs
         var nome = new Nome("Danilo", "Silva");
-        var documento = new Documento("12345678911");
+        var documento = new Documento("86915578005");
         var email = new Email("danilo.silva@msn.com");
 
         // Criar a entidade
