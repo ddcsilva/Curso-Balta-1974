@@ -2,13 +2,13 @@ using BaltaStore.Comum.Commands;
 using FluentValidator;
 using FluentValidator.Validation;
 
-namespace BaltaStore.Dominio.Commands.PedidoCommands.Inputs
+namespace BaltaStore.Dominio.Commands.PedidoCommands.Inputs;
+
+public class CriarPedidoCommand : Notifiable, ICommand
 {
-  public class CriarPedidoCommand : Notifiable, ICommand
-  {
     public CriarPedidoCommand(Guid cliente, IList<CriarItemPedidoCommand> itensPedido)
     {
-      ItensPedido = new List<CriarItemPedidoCommand>();
+        ItensPedido = new List<CriarItemPedidoCommand>();
     }
 
     public Guid Cliente { get; set; }
@@ -16,12 +16,11 @@ namespace BaltaStore.Dominio.Commands.PedidoCommands.Inputs
 
     public bool Valido()
     {
-      AddNotifications(new ValidationContract()
-                  .HasLen(Cliente.ToString(), 36, "Cliente", "Identificador do Cliente inválido")
-                  .IsGreaterThan(ItensPedido.Count, 0, "ItensPedido", "Nenhum item do pedido foi encontrado")
-              );
+        AddNotifications(new ValidationContract()
+                    .HasLen(Cliente.ToString(), 36, "Cliente", "Identificador do Cliente inválido")
+                    .IsGreaterThan(ItensPedido.Count, 0, "ItensPedido", "Nenhum item do pedido foi encontrado")
+                );
 
-      return IsValid;
+        return IsValid;
     }
-  }
 }

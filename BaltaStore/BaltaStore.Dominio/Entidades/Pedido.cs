@@ -38,7 +38,7 @@ public class Pedido : Notifiable
     // Criar um pedido
     public void Fechar()
     {
-        if(_itens.Count == 0)
+        if (_itens.Count == 0)
             AddNotification("Pedido", "Este pedido não possui itens");
     }
 
@@ -58,13 +58,13 @@ public class Pedido : Notifiable
         // Quebra as entregas
         foreach (var item in _itens)
         {
-            if (contador == 5) 
+            if (contador == 5)
             {
                 contador = 1;
                 entregas.Add(new Entrega(DateTime.Now.AddDays(5)));
             }
 
-            contador ++;
+            contador++;
         }
 
         // Envia todas as entregas

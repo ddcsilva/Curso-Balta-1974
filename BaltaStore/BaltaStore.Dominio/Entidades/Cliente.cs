@@ -13,7 +13,7 @@ public class Cliente : Notifiable
         Documento = documento;
         Email = email;
         Telefone = telefone;
-        
+
         _enderecos = new List<Endereco>();
     }
 

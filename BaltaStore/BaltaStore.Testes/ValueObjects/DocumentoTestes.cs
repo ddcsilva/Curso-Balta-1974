@@ -10,8 +10,8 @@ public class DocumentoTestes
 
     public DocumentoTestes()
     {
-        _documentoValido =  new Documento("32084234468");
-        _documentoInvalido =  new Documento("12345678911");
+        _documentoValido = new Documento("32084234468");
+        _documentoInvalido = new Documento("12345678911");
     }
 
     [TestMethod]
