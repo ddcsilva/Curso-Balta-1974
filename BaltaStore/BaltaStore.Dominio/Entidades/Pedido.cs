@@ -1,9 +1,10 @@
+using BaltaStore.Comum.Entities;
 using BaltaStore.Dominio.Enumeradores;
 using FluentValidator;
 
 namespace BaltaStore.Dominio.Entidades;
 
-public class Pedido : Notifiable
+public class Pedido : Entity
 {
     private readonly IList<ItemPedido> _itens;
     private readonly IList<Entrega> _entregas;

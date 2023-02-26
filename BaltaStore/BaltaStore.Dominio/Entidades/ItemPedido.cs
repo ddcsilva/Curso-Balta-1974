@@ -1,8 +1,9 @@
+using BaltaStore.Comum.Entities;
 using FluentValidator;
 
 namespace BaltaStore.Dominio.Entidades;
 
-public class ItemPedido : Notifiable
+public class ItemPedido : Entity
 {
     public ItemPedido(Produto produto, decimal quantidade)
     {

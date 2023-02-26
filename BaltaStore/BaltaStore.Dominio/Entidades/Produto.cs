@@ -1,8 +1,9 @@
+using BaltaStore.Comum.Entities;
 using FluentValidator;
 
 namespace BaltaStore.Dominio.Entidades;
 
-public class Produto : Notifiable
+public class Produto : Entity
 {
     public Produto(string titulo, string descricao, string imagem, decimal preco, decimal quantidadeEmEstoque)
     {
